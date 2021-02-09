@@ -48,6 +48,7 @@ int main(){
     cout << answer << endl;
     return 0;
 }
+
     
 //    char horse = arr[0][0];
 //    char next;

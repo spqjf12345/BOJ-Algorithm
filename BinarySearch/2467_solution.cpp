@@ -20,7 +20,7 @@ unordered_map<string, int> solution(int arr[],int n){
     mapping["alkali"] = 0;
     
     for(int i =0; i<n; i++){
-        if(arr[i] < 0){ put in acidArr
+        if(arr[i] < 0){ //put in acidArr
             acidArr[acidCount] = arr[i];
             acidCount++;
         }else if (arr[i] > 0){
