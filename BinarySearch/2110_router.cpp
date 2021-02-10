@@ -42,7 +42,7 @@ int find_min_distance(int home, int router, int *arr){
     }
     return max_distance;
     
-            //int value_min = min(arr[i] - arr[start], arr[end] - arr[i]);
+//  int value_min = min(arr[i] - arr[start], arr[end] - arr[i]);
 //            if(value_min > max_distance){
 //                max_distance = value_min; //3
 //                index = i; //2
