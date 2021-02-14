@@ -121,7 +121,7 @@ void bfs_mk_virus(){
     
 }
 
-void dfs_mk_wall(int index, int count){
+void dfs_mk_wall(int index, int count){ // brute force
     if(count == 3){// 벽 3개를 다 만들면
         bfs_mk_virus();
         //cout << "made wall " << index << endl;

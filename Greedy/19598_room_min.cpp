@@ -13,27 +13,36 @@ using namespace std;
 
 
 int assign_room_min(int n, vector <pair<int, int>> v){
-    int cnt = 1;
-    sort(v.begin(), v.end(), [](auto &left, auto &right) { // second 순으로 정렬
-        if(left.second == right.second){
-            return left.first < right.first;
-        }
-        return left.second < right.second;
-    });
-//    for(int i = 0;i< n; i++){
-//        cout << v.at(i).first << " " << v.at(i).second << endl;
-//    }
+    int cnt;
+    vector<pair<int, int> > vv;
+    sort(v.begin(), v.end()); // first 원소 기준으로 오름차순을 정렬
     
-    int before_meet = 0;
-    for(int i = 1; i < (int)v.size(); i++){
-        if(v.at(i).first >= v.at(before_meet).second){
-            cnt++; //put meeting
-            before_meet = i;
-            //cout << before_meet << endl;
-        }
-    }
+    vector<pair<int, int> >::iterator  iter;
     
+    for(iter = v.begin(); iter != v.end(); ++iter){
+          int i = 0;
+          //cout << vv.size() << endl;
+          for(i = 0; i < vv.size(); i++) // 검사할 갯수 0번째부터 검사 시작
+          {
+              //cout << i << " " << vv[i].first <<" " << vv[i].second << endl;
+              if((*iter).first >= vv[i].first && (*iter).first < vv[i].second){
+                  continue;
+              }
+              else {
+                  vv[i].second = (*iter).second;
+                  break;
+              }
+
+          }
+          
+          if(i ==  vv.size()){
+              //cout << "push " << i << " " << (*iter).first << (*iter).second << endl;
+              vv.push_back(*iter);// 처음 넣는 곳
+          }
+              
+      }
     
+    cnt = (int)vv.size();
     return cnt;
 }
 

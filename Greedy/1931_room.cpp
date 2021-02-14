@@ -38,7 +38,7 @@ int assign_meeting_room(int n, vector<pair<int, int>> v){
 
 
 int main(){
-    //make input
+
     int n;
     cin >> n;
     
