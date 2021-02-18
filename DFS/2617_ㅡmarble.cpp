@@ -57,7 +57,6 @@ int find_marble_dfs(int start, vector<int> graph[MAX], int row){
         }
     }
                 
-            
             int next_node = graph[current_node][i];
 
             if(visit[next_node] == false){
@@ -76,15 +75,11 @@ int find_marble_dfs(int start, vector<int> graph[MAX], int row){
 
 
 int main(){
-
-    ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
-    
     int n, N;
     cin >> n >> N;
 
     for(int i = 0; i< N; i++){
-        int m1, m2;
+        int m1, m2; //m1 > m2
         cin >> m1 >> m2;
         light[m1].push_back(m2);
         heavy[m2].push_back(m1);

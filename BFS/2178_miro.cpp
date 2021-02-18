@@ -61,6 +61,8 @@ int main(){
 
             if(a == 1){
                 map[i][j] = true;
+            }else{
+                map[i][j] = false;
             }
         }
     }
