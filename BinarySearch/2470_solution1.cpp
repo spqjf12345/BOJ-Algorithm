@@ -33,12 +33,12 @@ void solution1(int arr[], int n){
 
 int main() {
     int n;
-    int i=0;
+    int i = 0;
     
     cin >> n;
     int arr[n];
     
-    while(i<n){
+    while(i < n){
         cin >> arr[i];
         i++;
     }

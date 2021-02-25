@@ -15,8 +15,6 @@ using namespace std;
 
 #define MAX 100
 int n;
-int find_one = 0;
-int cnt = 0;
 bool visit[MAX][MAX];
 bool map [MAX][MAX];
 
