@@ -22,11 +22,11 @@ vector<int> heavy[MAX];
 bool check[MAX];
 int cnt = 0;
 
-int find_marble_dfs(int start, vector<int> graph[MAX], int row){
-    int Lank = 1;
+int find_marble_dfs(int start, vector<int> graph[MAX], int row){//row 로 graph == heavy, light 인지 판별
+    int Lank = 1; // 현재 순위
     for(int i = 0; i < (int)graph[start].size(); i++){
         if(visit[row][graph[start][i]] == false){
-            visit[row][graph[start][i]] = true;
+            visit[row][graph[start][i]] = true; // dfs 돌 수록 비교할 구슬이 많다는 것 따라서 순위 크기가 증가 (ex> 1 -> 8)
             Lank += find_marble_dfs(graph[start][i], graph, row);
         }
     }
@@ -85,23 +85,24 @@ int main(){
         heavy[m2].push_back(m1);
     }
 
-    for (int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) { // n = 구슬 번호 1 ~ n
         memset(visit, false, sizeof(visit));
         visit[0][i] = visit[1][i] = true;
 
         int h_rank = find_marble_dfs(i, heavy, 0);
         int l_Lank = find_marble_dfs(i, light, 1);
 
-        if (h_rank > (n + 1) / 2 || l_Lank > (n + 1) / 2)
+        if (h_rank > (n + 1) / 2 || l_Lank > (n + 1) / 2){ // 중간이 아닌 구슬들 check
             check[i] = true;
+        }
     }
 
     for (int i = 0; i <= n; i++){
         if (check[i] == true){
-            cnt++;
+            cnt++; //
         }
     }
 
-    cout << cnt<< endl;
+    cout << cnt << endl;
         return 0;
 }

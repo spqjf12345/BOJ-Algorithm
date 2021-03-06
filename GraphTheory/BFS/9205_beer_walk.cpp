@@ -23,12 +23,13 @@ void beer_walk_bfs(int _first, int _second){
     memset(visit, false, sizeof(visit));
 
     queue<pair<int, int>> q;
-    q.push(make_pair(_first, _second));
+    q.push(make_pair(_first, _second)); //첫번째 즉 집 q에 넣어줌
     visit[0] = true; // 집 넣어줌
 
 //    for(int i = 0; i < c_store + 2; i++){
 //        cout << "v: " << v[i].first << " " << v[i].second << endl;
 //    }
+    
     while(!q.empty()){
         int x = q.front().first;
         int y = q.front().second;
@@ -38,6 +39,7 @@ void beer_walk_bfs(int _first, int _second){
             int nx = v[i].first;
             int ny = v[i].second;
             
+            // 다음 곳 방문하지 않았고 && 맨허튼 거리로 1000미만인 경우 방문할 수 있으므로
             if(visit[i] == false && (abs(nx - x) + abs(ny - y)) <= 1000 ){
                 q.push(make_pair(v[i].first, v[i].second));
                 visit[i] = true;

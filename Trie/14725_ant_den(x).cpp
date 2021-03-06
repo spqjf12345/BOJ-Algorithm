@@ -4,11 +4,12 @@
 //
 //  Created by JoSoJeong on 2021/02/25.
 //
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <stdio.h>
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
@@ -59,35 +60,59 @@ struct Trie {
     }
 };
 
+string depth(int j){
+    string s = "";
+    if(j ==0) return s;
+    else{
+        for(int i =0; i <j; i++){
+            s += "--";
+        }
+        return s;
+    }
+    
+}
+
+
 int main(){
     int N;
     cin >> N;
     
-    char den[N][26];//전화부 / 전화번호 길이
-    //Trie * root = new Trie();
+    char den[N][26]; // 알파벳 길이
     
-    
+    Trie * root = new Trie();
+    int n;
     for(int i =0; i < N; i++){
-        int n;
+        //cout << "enter : ";
         cin >> n;
-        for(int j = 0; j< n; i++){
-            //cout << den[i][j] << " ";
-            cin >> den[i][j];
+        for(int j =0; j < n; j++){
+            scanf("%s", &den[i][j]);
+            //cin >> den[i][j];
         }
-        
-        cout <<den[i] << endl;
-        //root->insert(den[i]);
-
+        root->insert(den[i]);
+        //cout << den[i];
     }
     
 //    for(int i = 0; i < N; i++){
-//        cout << den[i] << " ";
+//        //root->find(den[i]);
+//        printf("%s: be\n", root->find(den[i]) != 0 ? "Prefix Exist" : "Prefix Not Exist");
+//
 //    }
     
-//    for(int i = 0; i < N; i++){
-//        cout << den[i] << endl;
-//        printf("%s: be\n", root->find(den[i]) != 0 ? "Prefix Exist" : "Prefix Not Exist");
-//    }
+    for(int i =0; i < N; i++){
+//        cout << strlen(den[i]) << endl;
+//        cout << sizeof(den[i]) << endl;
+//        cout << sizeof(char) << endl;
+        string str = "";
+        for(int j = 0; j < strlen(den[i]); j++){
+            str = depth(j);
+            //cout << str << " " << endl;
+            cout << str + den[i][j] << endl;
+        }
+    }
+    
+    
+
     
     return 0;
 }
+

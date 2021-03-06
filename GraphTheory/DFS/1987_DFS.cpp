@@ -27,8 +27,8 @@ void DFS(int x, int y, int cnt){
         if(nx >= 0 && ny >= 0 && nx < R && ny < C){
             if(visit[arr[nx][ny] - 'A'] == false){
                 visit[arr[nx][ny] - 'A'] = true;
-                DFS(nx, ny, cnt + 1);
-                visit[arr[nx][ny] - 'A'] = false;
+                DFS(nx, ny, cnt + 1); // 방문했으므로 cnt + 1
+                visit[arr[nx][ny] - 'A'] = false; //재귀적으로 다 돌고 왔을 때 다시 시작 노드의 인접 노드 방문 위해서
             }
         }
     }

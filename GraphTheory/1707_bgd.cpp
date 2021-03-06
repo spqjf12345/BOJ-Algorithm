@@ -14,7 +14,8 @@
 using namespace std;
 
 enum color { RED, BLUE };
- 
+// 이분 그래프인지 아닌지 판별하는 문제
+
 //vector<int> RED_GROUP;
 //vector<int> BLUE_GROUP;
 string res = "";
