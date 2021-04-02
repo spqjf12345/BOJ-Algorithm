@@ -35,9 +35,9 @@ void make_map(){
         for(int j = 0; j < M; j++){
             cin >> arr[i][j];
             //cout << arr[i][j] << " ";
-            if(arr[i][j] == 0){
+            if(arr[i][j] == 0){//빈칸
                 emptyArr.push_back(make_pair(i, j)); // 0 좌표
-            }else if(arr[i][j] == 2){
+            }else if(arr[i][j] == 2){//바이러스
                 virusArr.push_back(make_pair(i,j)); // 2 좌쵸
             }
         }
@@ -58,7 +58,7 @@ void make_BFS(int x, int y){
     queue<pair<int, int>> virusQ;
     virusQ.push(make_pair(x, y)); // 처음 위치의 바이러스를 집어 넣음
     visit[x][y] = true;
-    while(virusQ.empty()==0){ //not empty 일 경우 아직 방문하지 않은 노드가 있는 것이므로 2로 만들어 줘야 함
+    while(virusQ.empty() == 0){ //not empty 일 경우 아직 방문하지 않은 노드가 있는 것이므로 2로 만들어 줘야 함
         int x = virusQ.front().first;
         int y = virusQ.front().second;
         virusQ.pop();
@@ -68,8 +68,8 @@ void make_BFS(int x, int y){
             int ny = y + dy[i];
             
             if(nx >= 0 && ny >= 0 && nx < N && ny < M){
-                if(visit[nx][ny] == false && c_arr[nx][ny] == 0){
-                    c_arr[nx][ny] = 2;
+                if(visit[nx][ny] == false && c_arr[nx][ny] == 0){ // 방문 x이고 0(빈칸)이라면
+                    c_arr[nx][ny] = 2; // 바이러스를 넣어줌
                     visit[nx][ny] = true;
                     virusQ.push(make_pair(nx, ny));
                 }
@@ -96,7 +96,7 @@ void bfs_mk_virus(){
     make_cmap();
     memset(visit, false, sizeof(visit));//visit 배열을 false로 모두 초기화
     
-    //초기 작업
+    //초기 작업 - 벽 1을 세워줌
     for(int i = 0; i< zero_cnt; i++){
         if(count == 3) {
             //cout << "get break" << endl;
@@ -139,9 +139,6 @@ void dfs_mk_wall(int index, int count){ // brute force
 
 
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
     make_map();
     dfs_mk_wall(0,0); //{0,0}위치 부터 1로 벽 세우기
     cout << ans << endl;
