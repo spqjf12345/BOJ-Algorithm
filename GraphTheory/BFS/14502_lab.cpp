@@ -58,7 +58,8 @@ void make_BFS(int x, int y){
     queue<pair<int, int>> virusQ;
     virusQ.push(make_pair(x, y)); // 처음 위치의 바이러스를 집어 넣음
     visit[x][y] = true;
-    while(virusQ.empty() == 0){ //not empty 일 경우 아직 방문하지 않은 노드가 있는 것이므로 2로 만들어 줘야 함
+    while(virusQ.empty() == 0){
+        //not empty 일 경우 아직 방문하지 않은 노드가 있는 것이므로 2로 만들어 줘야 함
         int x = virusQ.front().first;
         int y = virusQ.front().second;
         virusQ.pop();
