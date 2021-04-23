@@ -91,12 +91,12 @@ int main(){
         }
     }
     
-    for(int i = 0; i < K; i++){
-        for(int j = 0; j < (int)temp[i].size(); j++){
-            //cout << temp[i][j].first << " " << temp[i][j].second << " ";
-        }
-        //cout<< endl;
-    }
+//    for(int i = 0; i < K; i++){
+//        for(int j = 0; j < (int)temp[i].size(); j++){
+//            cout << temp[i][j].first << " " << temp[i][j].second << " ";
+//        }
+//        cout<< endl;
+//    }
     
     //map 초기화
     for(int i =0; i < M + 1; i++){
