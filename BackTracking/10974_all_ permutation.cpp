@@ -17,6 +17,7 @@ bool visit[9];
 int n;
 
 ///<algorithm> -> next_permutation(순열 시작, 순열 끝)
+/// with recursive 
 void make_permu_dfs(){
     if(v.size() == n){
         for(int i = 0; i < n; i++){

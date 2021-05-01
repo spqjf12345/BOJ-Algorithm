@@ -23,15 +23,18 @@ bool visit[MAX];
 int result_start, result_end;
 
 bool make_bfs(int mid_cost){
+    // 1-> 2 : 2
+    // 1-> 3 : 3
+    // 2 -> 3 : 2
     queue<int> q;
-    q.push(result_start);
+    q.push(result_start); //1
     visit[result_start] = true;
     
     while(q.size() != 0){
         int now = q.front();
         q.pop();
         
-        if(now == result_end) {
+        if(now == result_end) { //3
             return true;
         }
 
@@ -51,7 +54,7 @@ bool make_bfs(int mid_cost){
 
 void bi_search(){
     int left = 1;
-    int right = maxCost;
+    int right = maxCost; //3
     
     while(left <= right){
         memset(visit, false, sizeof(visit));
@@ -66,9 +69,6 @@ void bi_search(){
 }
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
     cin >> N >> M;
     for(int i = 0; i < M; i++){
         int start, end, weight;

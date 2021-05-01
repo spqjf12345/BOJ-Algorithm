@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <vector>
 
-
+///9난쟁이 중 진짜 난쟁이 찾기
 using namespace std;
 vector<int>arr;
 vector<int>re_arr;

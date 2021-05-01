@@ -14,11 +14,12 @@ using namespace std;
 int already, will, dis;
 int min_num = 0;
 vector<int> v;
+
 void set_rest(){
     sort(v.begin(), v.end());
     int left = 0; int right = dis;
     while(left <= right){
-        int mid = (left + right)/2;
+        int mid = (left + right) //0 800
         int rest = 0;
         for(int i = 1; i < (int)v.size(); i++){
             //0이 나누어 떨어지면 기존에 있던 위치에 다시 세우는 것이므로 
