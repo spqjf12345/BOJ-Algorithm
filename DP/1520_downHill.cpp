@@ -1,9 +1,3 @@
-//
-//  1520_downHill.cpp
-//  SOMA👩🏻‍💻
-//
-//  Created by JoSoJeong on 2021/05/05.
-//
 
 #include <stdio.h>
 #include <iostream>
@@ -18,30 +12,26 @@ int dp[501][501];
 
 int dx[] = { 0, 0, 1, -1 }; //up down left right
 int dy[] = { 1, -1, 0, 0 };
-
+bool visit[501][501];
+int cnt = 0;
 
 int find_route(int i, int j){
     
     if(i == n -1 && j == m -1) return 1;
-    int memo = dp[i][j]; //memozation
-    if(memo != -1) return memo;
-    memo = 0;
+   
     for(int s = 0; s < 4; s++){
         int nx = i + dx[s];
         int ny = j + dy[s];
         if(nx < 0 || ny < 0 || nx >= n || ny >= m) continue;
         if(arr[nx][ny] >= arr[i][j]) continue;
-        memo += find_route(nx, ny);
+        dp[nx][ny] += find_route(nx, ny);
     }
     
-    return memo;
+    return dp[n-1][m-1];
     
 }
 
 int main(){
-    
-    cin.tie(NULL);
-    ios::sync_with_stdio(false);
     cin >> n >> m;
     for(int i = 0; i < n; i++){
         for(int j= 0; j < m; j++){
@@ -50,8 +40,8 @@ int main(){
         }
     }
 
-    cout << find_route(0, 0) << '\n';
-    
+    cout << find_route(0, 0) + 1 << '\n';
+//    
 //    for(int i = 0; i < n; i++){
 //        for(int j= 0; j < m; j++){
 //            cout << dp[i][j] << " ";

@@ -47,8 +47,7 @@ void eat_fish_bfs(pair<int, int> start){
     //memset(visit, false, sizeof(visit));
     queue<fish> q;
     q.push({0, start.first, start.second});
-    //cout << "start.first start.second" << start.first << " " << start.second <<'\n';
-
+    
     int weight = 2; //현재 상어 몸무게
     int dist = 0; // 이동 거리
     int eatCount = 0; // 먹은 물고기 수
@@ -59,30 +58,32 @@ void eat_fish_bfs(pair<int, int> start){
         while(!q.empty()){
             int x = q.front().x;
             int y = q.front().y;
-            //cout << "start.first start.second" << start.first << " " << start.second <<'\n';
             int curDist = q.front().dist;
             q.pop();
             for(int i = 0; i <4; i++){
                 int nx = x + dx[i];
                 int ny = y + dy[i];
                 if(nx < 0 || ny < 0 || nx >= n || ny >= n) continue;
-                if(arr[ny][nx] > weight || visit[ny][nx]) continue;
-                //cout << "cur Dist nx ny " << curDist << " " << nx << " " << ny <<'\n';
+                if(arr[ny][nx] > weight || visit[ny][nx]) {
+//                    cout << "continue cur Dist nx ny " << curDist << " " << nx << " " << ny <<'\n';
+                    continue;
+                }
+                cout << "cur Dist nx ny " << curDist << " " << nx << " " << ny <<'\n';
                 q.push({curDist + 1, ny, nx});
                 visit[ny][nx] = true;
                 
                 if(arr[ny][nx] < weight && arr[ny][nx] != 0){
+                    cout << "-----cur Dist nx ny----" << curDist << " " << nx << " " << ny <<'\n';
                     pq.push({curDist + 1, ny, nx});
-//                    cout << "-----  curDist nx ny ----" << curDist << " " << nx << " " << ny <<'\n';
                 }
             }
         }
+        
         memset(visit, false, sizeof(visit));
         if(!pq.empty()){ // 먹을 물고기 남아 있다면
             int fishX = pq.top().x;
             int fishY = pq.top().y;
             int fishDist = pq.top().dist;
-//            cout << "fishDist fishX fishY " << fishDist << " " << fishX << " " << fishY << " " << '\n';
             pq.pop();
             
             arr[fishY][fishX] = 0;
