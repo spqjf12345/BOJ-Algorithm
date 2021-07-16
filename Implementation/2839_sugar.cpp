@@ -19,10 +19,10 @@ int main() {
     cin >> temp;
     
     while(temp > 0){
-        if(temp % setBag5 ==0){
+        if(temp % setBag5 == 0){
             temp -=setBag5;
             needBag +=1;
-        }else if(temp % setBag3 ==0){
+        }else if(temp % setBag3 == 0){
             temp -= setBag3;
             needBag +=1;
         }else if(temp > setBag5){
