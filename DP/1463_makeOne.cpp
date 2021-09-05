@@ -14,7 +14,7 @@ int d[1000001] = {0, };
 
 int dp(int n){
     int max = 1000001;
-    d[1] = d[2] = d[3] = 1;
+    d[2] = d[3] = 1;
     if(n == 1) { return 0;}
     
     if (d[n] > 0) return d[n];
