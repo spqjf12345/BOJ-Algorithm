@@ -20,19 +20,15 @@ int cnt = 1;
 void combi(){
     
     if(idx.size() == 3){
-        //cout << "====== cnt " << cnt++ << " =======" << '\n';
         int maxCheck[1001] = { 0, };
         for(int i = 1; i <= N; i++){ // person
             for(int j = 0; j < 3; j++){ // card
                 int n = idx.at(j);
-                //cout << idx.at(j) << ' ';
                 maxCheck[i] += arr[i][n];
             }
             
             result[i] = max(maxCheck[i] % 10, result[i]);
-    
-            //cout << "i is " << i  << " maxCheck[i] is " << maxCheck[i] <<'\n';
-            //cout << "result is " << result[i] << '\n';
+
         }
     }else {
         for(int i = 1; i <= 5; i++){
@@ -55,13 +51,6 @@ int main(){
             cin >> arr[i][j];
         }
     }
-    
-//    for(int i = 1; i <= N; i++){
-//        for(int j = 0; j < 5; j++){
-//            cout << arr[i][j] << " ";
-//        }
-//        cout << '\n';
-//    }
     
     combi();
     
