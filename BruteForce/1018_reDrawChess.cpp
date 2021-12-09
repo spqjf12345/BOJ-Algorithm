@@ -7,10 +7,12 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <stack>
 
 using namespace std;
 int col, row;
 string arr[51];
+stack<pair<int, int>> s[41];
 
 int min_val = 1000000;
 string WB[8] = {

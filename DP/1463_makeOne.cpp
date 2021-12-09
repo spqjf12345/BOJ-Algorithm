@@ -10,7 +10,7 @@
 #include <algorithm>
 
 using namespace std;
-int d[1000001] = {0, };
+int d[1000001] = {0, }; // 나눈 횟수가 저장됨
 
 int dp(int n){
     int max = 1000001;
