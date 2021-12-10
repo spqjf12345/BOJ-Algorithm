@@ -32,7 +32,7 @@ void find_min_path(int start){
         for(int i = 0; i < vertex[now].size(); i++){
             //거쳐서 가는 노드의 비용을 계산
             int cost = dist + vertex[now][i].second;
-            if(cost <d[vertex[now][i].first]) // 비용이 더 작다면 최단경로 테이블 값을 갱신.
+            if(cost < d[vertex[now][i].first]) // 비용이 더 작다면 최단경로 테이블 값을 갱신.
             {
                 d[vertex[now][i].first] = cost;
                 pq.push(make_pair(-cost,vertex[now][i].first));

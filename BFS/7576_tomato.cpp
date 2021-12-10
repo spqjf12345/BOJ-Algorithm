@@ -14,7 +14,6 @@ int tomatoMap[1001][1001];
 int M, N;
 int tomatoCount;
 int dfscount;
-//pair<int, int>startPoint;
 int visit[1001][1001] = {false, };
 
 int dx[] = { 0, 0, 1, -1 }; //up down left right
