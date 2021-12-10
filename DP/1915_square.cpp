@@ -33,17 +33,10 @@ void input(){
 }
 
 void find_biggest_square(){
-//    int start = arr[0][0];
-//    for(int i=0; i< 4; i++){
-//        int nx = x + dx[i];
-//        int ny = y + dy[i];
-//        if(nx >= 0 && ny >= 0 && nx < R1 && ny << R2){
-//
-//        }
-//    }
+
     for(int i = 1; i < R1; i++){
         for(int j = 1; j < R2; j++){
-            if(arr[i-1][j-1] == 1 && arr[i-1][j] == 1 && arr[i][j-1] == 1){
+            if(arr[i-1][j-1] == 1 && arr[i-1][j] == 1 && arr[i][j-1] == 1 && arr[i][j] == 1){
                 memo[i][j] = min(memo[i-1][j-1], memo[i-1][j]);
                 memo[i][j] = min(memo[i][j], memo[i][j-1]) + 1;
             }
