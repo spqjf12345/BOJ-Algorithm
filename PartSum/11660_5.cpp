@@ -36,6 +36,7 @@ int main(){
     
     for(int i = 2; i <= N; i++){
         for(int j = 2; j<=N; j++){
+            //구간합, 구간합, 새로운 값, 중복되는 부분 제거
             sumArr[i][j] = sumArr[i-1][j] + sumArr[i][j-1] + originalArr[i][j] - sumArr[i-1][j-1];
         }
     }

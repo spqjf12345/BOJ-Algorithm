@@ -63,11 +63,11 @@ int main(){
         return 0;
     }else{
         tomato_dfs();
-        if(tomatoCount - dfscount != 0){ // 토마토 다 익힘!
+        if(tomatoCount - dfscount != 0){ // 토마토 다 익지 x
             cout << "-1" << '\n';
             return 0;
         }
-        for(int i = 0; i < N; i++){
+        for(int i = 0; i < N; i++){ // 토마토 다 익힘
             for(int j = 0; j < M; j++){
                 if(max < tomatoMap[i][j]){
                     max = tomatoMap[i][j];

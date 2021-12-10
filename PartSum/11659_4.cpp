@@ -23,11 +23,6 @@ int main(){
         cin >> originalArr[i];
         sumArr[i] += originalArr[i] + sumArr[i - 1];
     }
-
-//    for(int i = 1; i <= n; i++){
-//        cout << "origin : " << originalArr[i] << '\n';
-//        cout << "sum : " <<  sumArr[i] << '\n';
-//    }
     
     for(int i =0; i < Tcase; i++){
         int k, l;
