@@ -50,13 +50,6 @@ int main(){
             dp[i][j] = 0;
         }
     }
-//input 확인용
-//    for(int i = 0; i < N; i++){
-//        for(int j = 0; j < N; j++){
-//            cout << arr[i][j] << " ";
-//        }
-//        cout << '\n';
-//    }
     
     int maxRice = 0;
     
