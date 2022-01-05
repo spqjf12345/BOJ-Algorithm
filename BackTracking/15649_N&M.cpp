@@ -16,6 +16,7 @@ vector<int> v;
 int visit[9] = { false, };
 vector<int>::iterator it;
 
+//combination
 void make_dfs(){
     if(v.size() == M){
         for(int i = 0; i < M; i++){

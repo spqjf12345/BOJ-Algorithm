@@ -78,6 +78,7 @@ void dfs_all(){
     
     int person = 0;
     int blind_perspn = 0;
+    
     for(int i =0; i < N; i++){
         for(int j = 0; j < N; j++){
             if(visit[i][j] == false){

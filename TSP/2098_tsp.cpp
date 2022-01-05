@@ -18,7 +18,7 @@ int n;
 int dp[16][1<<16]; // now node를 시작으로 했을때 A = {() - now} 배열에 있는 노드 방문시의 최소값
 int W[16][16]; // 비용 배열
 
-int TSP(int now, int visited){
+int TSP(int now, int visited){ //using dp
     
     int &ret = dp[now][visited];
     if(ret != -1) { // 값을 구해 놓았다면
