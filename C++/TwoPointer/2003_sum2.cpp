@@ -5,44 +5,43 @@
 //  Created by JoSoJeong on 2021/02/26.
 //
 
-#include <stdio.h>
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 
 using namespace std;
+int M, N;
+int cnt = 0;
+vector<int> v;
 
-int two_pointer(int N, int arr[], int M){
-    int cnt = 0;
+void pointer(){
     int start = 0, end = 0;
     int sum = 0;
     
     while(true){
-        
-        if(sum >= M){
-            sum = sum - arr[start++]; // 값을 빼주고 start 인덱스 뒤로 감
-        }else if(end == N){ // end 가 인덱스 범위 벗어났을 경우
+        if(sum >= N) {
+            sum = sum - v[start++];
+        }else if(end >= M) {
             break;
-        }else{ // end 현재 위치값 저장 후 end 뒤로 이동
-            sum = sum + arr[end++];
+        }else {
+            sum = sum + v[end++];
         }
         
-        if(sum == M){
+        if(sum == N){
             cnt++;
         }
     }
-    
-    return cnt;
 }
+
 int main(){
-    int N, M;
-    cin >> N >> M;
-    int arr[N];
-    for(int i =0; i < N; i++){
-        cin >> arr[i];
+    cin >> M >> N;
+    for(int i = 0; i < M; i++){
+        int temp;
+        cin >> temp;
+        v.push_back(temp);
     }
-  
-    int cnt = two_pointer(N, arr, M);
-    cout << cnt << endl;
+    
+    pointer();
+    cout << cnt << '\n';
     return 0;
 }
