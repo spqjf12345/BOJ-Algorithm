@@ -5,31 +5,29 @@
 //  Created by JoSoJeong on 2021/05/04.
 //
 
-#include <stdio.h>
 #include <iostream>
 using namespace std;
+int memo[11] = {0, }; // n 숫자를 더하는 방법의 수
 int dp[11] = {0, };
-int memo[11] = {0, };
+int Tcase;
+int a;
 
-int dp_plus(int n){
-    if(memo[n] > 0){
-        return memo[n];
-    }else{
-        memo[n] = dp_plus(n - 1) + dp_plus(n - 2) + dp_plus(n - 3);
-        return memo[n];
+int find_dp(int num) {
+    if(memo[num] > 0){
+        return memo[num];
+    }else {
+        memo[num] = find_dp(num - 1) + find_dp(num - 2) + find_dp(num - 3);
+        return memo[num];
     }
+    
 }
 
 int main(){
-    int TC;
-    cin >> TC;
     memo[1] = 1; memo[2] = 2; memo[3] = 4;
-    for(int i =0; i < TC; i++){
-        int n;
-        cin >> n;
-        int dpResult = dp_plus(n);
-        cout << dpResult << '\n';
+    cin >> Tcase;
+    for(int i = 0; i < Tcase; i++){
+        cin >> a;
+        cout <<find_dp(a) << '\n';
     }
-  
     return 0;
 }

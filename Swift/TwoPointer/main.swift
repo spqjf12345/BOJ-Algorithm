@@ -45,4 +45,3 @@ func pointer() -> Int {
 
 }
 
-print(pointer())
