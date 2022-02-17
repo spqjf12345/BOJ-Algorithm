@@ -19,8 +19,8 @@ int moving[3] = { - 1, 1, 2}; //walk, jump
 
 void hide_and_seek_bfs(int num){
     queue<int> q;
-    q.push(num);
-    visit[num] = 0;
+    q.push(num); // 수빈 위치 넣어줌
+    visit[num] = 0; // 시간
     
     if(num == k){
         cout << 0 << '\n';
@@ -39,7 +39,7 @@ void hide_and_seek_bfs(int num){
             if(next < 0 || next > 100000) continue;
             if(visit[next] != -1) continue;
             
-            q.push(next);
+            q.push(next); // 다음 위치 값
             visit[next] = visit[temp] + 1;
             
             if(next == k){
