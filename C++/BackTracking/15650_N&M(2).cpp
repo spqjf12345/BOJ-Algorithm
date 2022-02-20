@@ -11,7 +11,7 @@
 using namespace std;
 int N, M;
 int answer[10];
-
+//조합
 void make_backTracking(int level, int num){
     if(level == M){
         for(int i = 0; i < M; i++){

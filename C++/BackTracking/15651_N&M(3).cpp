@@ -10,7 +10,7 @@
 using namespace std;
 int N, M;
 int arr[8];
-
+//중복 순열
 void backTracking(int cnt){
     if(cnt == M){ // M개 다 골랐다면
         for(int i = 0; i < M; i++){
