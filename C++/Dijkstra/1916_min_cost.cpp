@@ -26,9 +26,10 @@ void min_bus(int start, int end){
         int dist = -pq.top().first;
         int now = pq.top().second;
         pq.pop();
-        
+        if(d[now] < dist) { continue; }
         for(int i = 0; i < vertex[now].size(); i++){
             int cost = dist + vertex[now][i].second;
+            
             if(cost <d[vertex[now][i].first]) // 비용이 더 작다면 최단경로 테이블 값을 갱신.
             {
                 d[vertex[now][i].first] = cost;
@@ -40,6 +41,10 @@ void min_bus(int start, int end){
 }
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int city;
     cin >> city;
     int bus;
