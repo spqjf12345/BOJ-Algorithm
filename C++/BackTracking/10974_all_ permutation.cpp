@@ -31,7 +31,6 @@ void make_permu_dfs(){
                 visit[i] = true;
                 v.push_back(i);
                 make_permu_dfs();
-                //cout << "pop " << v.back() << endl;
                 v.pop_back();
                 visit[i] = false;
             }
