@@ -48,12 +48,11 @@ int main(){
     while(!q.empty()){
         int top = q.front();
         q.pop();
-        //cout << "top " << top << "\n";
         for(int i = 0; i < v[top].size(); i++){
             int next = v[top][i];
             if(--indegree[next] == 0) { q.push(next); }
             sum[next] = max(sum[next], buildTime[next] + sum[top]);
-            //cout << "top " << next << " value " << sum[next] <<'\n';
+
         }
         
     }
