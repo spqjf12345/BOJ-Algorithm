@@ -14,7 +14,7 @@ int N, M, K;
 int d[101][101];
 string word;
 
-//combination with dp
+//finc combination string with dp
 int dp(int n, int m){
     if(n == 0 || m == 0) { return 1; } // 기저
     int &result = d[n][m];
