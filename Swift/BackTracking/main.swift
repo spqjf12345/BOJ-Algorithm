@@ -8,6 +8,7 @@
 import Foundation
 //https://www.acmicpc.net/problem/1759
 
+
 var line = readLine()!.split(separator: " ").map{ Int($0)! }
 var n = line[1]
 var m = line[0]
