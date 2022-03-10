@@ -12,7 +12,6 @@ var index = 1
 var n = 0
 var d = [[Int]]()
 
-
 func find_jelda(map: [[Int]]) {
     var idx = 0
     var qu = [(Int, (Int, Int))]()
