@@ -27,6 +27,7 @@ for _ in 0..<dist {
 func dijkstra(start: Int){
     var visit: [Bool] = Array(repeating: false, count: n+1)
     var qu = [(Int, Int)]()
+    
     for i in 0..<n+1 {
         d[i] = 1000000000
     }
@@ -47,6 +48,9 @@ func dijkstra(start: Int){
                 if(cost < d[node[next][i].0]){
                     d[node[next][i].0] = cost
                     qu.append((cost, node[next][i].0))
+                    qu.sort { (a, b) -> Bool in
+                        return a > b
+                    }
                     //print("\(cost) \(node[next][i].0)")
                 }
             }
