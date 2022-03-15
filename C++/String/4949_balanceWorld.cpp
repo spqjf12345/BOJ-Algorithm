@@ -11,7 +11,6 @@
 #include <stack>
 
 using namespace std;
-string s;
 int idx = 0;
 
 string check(string s){
@@ -20,34 +19,24 @@ string check(string s){
     for(int i =0; i < s.length(); i++){
         if(s[i] == '(' || s[i] == '['){
             token.push(s[i]);
-        }else if (s[i] == ')'){
-            if(!token.empty()){
-                if(token.top() == '('){
-                    token.pop();
-                }
-            }else {
-                return "no";
+        }else if (s[i] == ')') {
+            if(!token.empty() && token.top() == '('){
+                token.pop();
+            }else{
+                token.push(s[i]);
             }
-        }else if (s[i] == ']'){
-            if(!token.empty()){
-                if(token.top() == '['){
-                    token.pop();
-                }
-            }else {
-                return "no";
+        }else if (s[i] == ']') {
+            if(!token.empty() && token.top() == '['){
+                token.pop();
+            }else{
+                token.push(s[i]);
             }
-        }else if(s[i] == '.'){
-            break;
+        }else {
+            continue;
         }
-        
     }
     
     if(!token.empty()){
-//        while(!token.empty()){
-//            cout << token.top() << '\n';
-//            token.pop();
-//        }
-        //cout << "here" << '\n';
         return "no";
     }else {
         return "yes";
@@ -58,6 +47,7 @@ string check(string s){
 
 int main(){
     while(true){
+        string s;
         getline(cin, s);
         if(s.length() == 1 && s[0] == '.'){
             break;
