@@ -35,16 +35,16 @@ func seperate() {
         }else if(i == 10){
             cnt += 1
         }else { // 잘라 먹기
-//            var piece = i
-//            while(m > 0 && piece > 10){
-//                piece -= 10
-//                cnt += 1
-//                m -= 1
-//                if(piece == 10){ // 자를 필요 x
-//                    cnt += 1
-//                    break
-//                }
-//            }
+            var piece = i
+            while(m > 0 && piece > 10){
+                piece -= 10
+                cnt += 1
+                m -= 1
+                if(piece == 10){ // 자를 필요 x
+                    cnt += 1
+                    break
+                }
+            }
             
            
         }
