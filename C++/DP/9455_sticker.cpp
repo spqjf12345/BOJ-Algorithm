@@ -12,11 +12,6 @@
 using namespace std;
 int Tcase;
 
-// 00 -> 01, 10 선택 x
-// ij원소 선택 -> ij+1,i+1,j선택 x
-// dp[i][j] = max({dp[i][j-1], dp[i-1][j], dp[i-1][j-1]}) + arr[i][j];
-// if i == 0 -> d[i][j] = d[i+1][j+1] // i == 1 -> d[i-1][j+1]
-
 int main(){
     cin >> Tcase;
     for(int i = 0; i < Tcase; i++){
