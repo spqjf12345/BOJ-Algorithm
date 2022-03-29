@@ -25,32 +25,33 @@ for i in roleCake {
         roleCakeArrNotTen.append(i)
     }
 }
+roleCakeArrTen.sort()
+roleCakeArrNotTen.sort()
 
-var roleCakeArr = roleCakeArrTen + roleCakeArrNotTen
-
-func seperate() {
-    for i in roleCakeArr {
-        if(i < 0){ // 못먹음
-            continue
-        }else if(i == 10){
-            cnt += 1
-        }else { // 잘라 먹기
-            var piece = i
-            while(m > 0 && piece > 10){
-                piece -= 10
-                cnt += 1
-                m -= 1
-                if(piece == 10){ // 자를 필요 x
-                    cnt += 1
-                    break
-                }
-            }
-            
-           
-        }
+func cutCake(_ p: Int) -> Void{
+    var piece = p
+    if(m <= 0 || piece < 10) {
+        return
     }
-    
+    piece -= 10
+    cnt += 1
+    m -= 1
+    if(piece > 10) {
+        cutCake(piece)
+    }else if (piece == 10) {
+        cnt += 1
+    }
+    return
 }
-seperate()
+
+for i in roleCakeArrTen {
+    if(i == 10) { cnt += 1 }
+    else { cutCake(i) }
+}
+
+for i in roleCakeArrNotTen {
+    cutCake(i)
+}
+
 print(cnt)
 
