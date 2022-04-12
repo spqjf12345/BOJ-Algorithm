@@ -16,17 +16,79 @@ var dy = [0, 0, 1, -1]
 var map = [[Int]]()
 var visit: [[[Int]]] = Array(repeating: Array(repeating: Array(repeating: 0, count: 2), count: m), count: n) // x, y, 벽 부순 적 있는지
 
+class Queue<T: Equatable> {
+    var enqueue: [T]
+    var dequeue: [T] = []
+    
+    var count: Int {
+        return enqueue.count + dequeue.count
+    }
+    
+    var isEmpty: Bool {
+        return enqueue.isEmpty && dequeue.isEmpty
+    }
+    
+    var first: T? {
+        if dequeue.isEmpty {
+            return enqueue.first
+        } else {
+            return dequeue.last
+        }
+    }
+    
+    var last: T? {
+        if enqueue.isEmpty {
+            return dequeue.first
+        } else {
+            return enqueue.last
+        }
+    }
+    
+    init(_ queue: [T]) {
+        enqueue = queue
+    }
+    
+    func push(_ n: T) {
+        enqueue.append(n)
+    }
+    
+    func pop() -> T? {
+        if dequeue.isEmpty {
+            dequeue = enqueue.reversed()
+            enqueue.removeAll()
+        }
+        return dequeue.popLast()
+    }
+    
+    func removeAll() {
+        enqueue.removeAll()
+        dequeue.removeAll()
+    }
+    
+    func contains(_ n: T) -> Bool {
+        return enqueue.contains(n) || dequeue.contains(n)
+    }
+}
+
+struct Wall: Equatable {
+    var x: Int = 0
+    var y: Int = 0
+    var isBreak: Int = 0
+}
+
+
 func bfs() -> Int {
-    var queue = [(Int, Int, Int)]() // x, y, 벽 부쉈는지
-    queue.append((0, 0, 0))
+    var queue = Queue<Wall>([Wall(x: 0, y: 0, isBreak: 0)])
+    //var queue = [(Int, Int, Int)]() // x, y, 벽 부쉈는지
+   // queue.append((0, 0, 0))
     visit[0][0][0] = 1 // 0, 0, 0(벽 안부숴도 됨)
     
     while(!queue.isEmpty) {
-        let x = queue.first!.0
-        let y = queue.first!.1
-        let isBreak = queue.first!.2
+        let x = queue.first!.x
+        let y = queue.first!.y
+        let isBreak = queue.first!.isBreak
+        queue.pop()
         
-        queue.removeFirst()
         if(x == n-1 && y == m-1) { return visit[x][y][isBreak] }
         for i in 0..<4 {
             let nx = dx[i] + x
@@ -37,10 +99,10 @@ func bfs() -> Int {
 
             if(map[nx][ny] == 0) {
                 visit[nx][ny][isBreak] = visit[x][y][isBreak] + 1
-                queue.append((nx, ny, isBreak))
+                queue.push(Wall(x: nx, y: ny, isBreak: isBreak))
             }else if(map[nx][ny] == 1 && isBreak == 0){ // 기회 안사용 했을때
                 visit[nx][ny][1] = visit[x][y][isBreak] + 1
-                queue.append((nx, ny, 1)) // 부술 기회 사용
+                queue.push(Wall(x: nx, y: ny, isBreak: 1))
             }
             
             
