@@ -55,6 +55,18 @@ for i in 1..<n {
 }
 print(answer)
 
+//import Foundation
+//var line = readLine()!.split(separator: " ").map { Int(String($0))! }
+//var n = line[0]
+//var m = line[1]
+//var tree: [[Int]] = Array(repeating: [], count: n+1)
+//var visit: [Int] = Array(repeating: 0, count: n+1)
+//
+//for _ in 0..<m {
+//    var l = readLine()!.split(separator: " ").map { Int(String($0))! }
+//    tree[l[0]].append(l[1])
+//    tree[l[1]].append(l[0])
+//}
 //func bfs_level(start: Int, find: Int, cnt: Int) {
 //    var queue = [(Int, Int, Int)]()
 //    visit[start] = 1
