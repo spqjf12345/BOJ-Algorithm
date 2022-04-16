@@ -54,3 +54,32 @@ for i in 1..<n {
     }
 }
 print(answer)
+
+//func bfs_level(start: Int, find: Int, cnt: Int) {
+//    var queue = [(Int, Int, Int)]()
+//    visit[start] = 1
+//    queue.append((start, find, cnt))
+//
+//    while !queue.isEmpty {
+//        let now = queue.first!.0
+//        let value = queue.first!.1
+//        let cn = queue.first!.2
+//        queue.removeLast()
+//        if value > n { break }
+//        if tree[now].contains(value) {
+//            visit[value] = cn
+//            queue.append((start, value+1, 1))
+//            continue
+//        }
+//
+//        for i in 0..<tree[now].count {
+//            var next = tree[now][i]
+//
+//            if visit[next] == 0 {
+//                queue.append((next, value, cnt+1))
+//            }
+//        }
+//    }
+//}
+//
+//
