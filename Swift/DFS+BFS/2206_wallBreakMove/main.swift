@@ -16,7 +16,7 @@ var dy = [0, 0, 1, -1]
 var map = [[Int]]()
 var visit: [[[Int]]] = Array(repeating: Array(repeating: Array(repeating: 0, count: 2), count: m), count: n) // x, y, 벽 부순 적 있는지
 
-class Queue<T: Equatable> {
+fileprivate class Queue<T: Equatable> {
     var enqueue: [T]
     var dequeue: [T] = []
     
