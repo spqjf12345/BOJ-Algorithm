@@ -24,6 +24,7 @@ for _ in 0..<n {
     let line = readLine()!.split(separator: " ").map { Int(String($0))! }
     changedMap.append(line)
 }
+
 func dfs(originalValue: Int, updateValue: Int, x: Int, y: Int){
     print(originalValue, updateValue, x, y)
     var visit = Array(repeating: Array(repeating: false, count: m), count: n)
@@ -46,15 +47,14 @@ func dfs(originalValue: Int, updateValue: Int, x: Int, y: Int){
             queue.append((nx, ny))
         }
     }
-    
     print(originalMap)
-    
 }
+
 func compareMap() -> String {
     if originalMap == changedMap {
-        print("hree")
         return "YES"
     }
+    
     for i in 0..<n {
         for j in 0..<m {
             if originalMap[i][j] != changedMap[i][j] {
